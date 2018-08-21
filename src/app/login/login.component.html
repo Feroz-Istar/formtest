@@ -1,0 +1,52 @@
+<!-- form card login with validation feedback -->
+<div class="card card-outline-secondary">
+  <div class="card-header">
+    <h3 class="mb-0">Login</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form1" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="uname1">Username/email</label>
+
+        <input type="text" class="form-control" id="uname1" name="uname1" formControlName="uname1" placeholder="Email" [ngClass]="{ 'is-invalid': uname1.invalid && (uname1.dirty || uname1.touched), 'is-valid':
+                    uname1.valid && (uname1.dirty || uname1.touched)}">
+
+        <div class="invalid-feedback mt-2" *ngIf="uname1.invalid && (uname1.dirty || uname1.touched)">
+          <p *ngIf="uname1.errors.required"> Please enter a valid email ID</p>
+          <p *ngIf="uname1.errors.pattern"> example@xyz.com</p>
+        </div>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" id="pwd1" name="pwd1" formControlName="pwd1" placeholder="Password" [ngClass]="{ 'is-invalid': pwd1.invalid && (pwd1.dirty ||
+                   pwd1.touched), 'is-valid': pwd1.valid && (pwd1.dirty || pwd1.touched)}">
+
+        <div class="invalid-feedback mt-2" *ngIf="pwd1.invalid && (pwd1.dirty || pwd1.touched)">
+          <p *ngIf="pwd1.errors.required"> Please enter password</p>
+          <p *ngIf="pwd1.errors.minlength"> password Should be atleast 8 characters</p>
+          <p *ngIf="pwd1.errors.pattern"> password Should be stronger</p>
+        </div>
+        <div class="valid-feedback">looks good</div>
+      </div>
+
+
+      <div class="form-check small">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="chkbox1" formControlName="chkbox1" [ngClass]="{ 'is-invalid': chkbox1.invalid && (chkbox1.dirty || chkbox1.touched), 'is-valid': chkbox1.valid && (chkbox1.dirty || chkbox1.touched)}">
+          <span>accept T & C </span>
+        </label>
+
+        <div class="invalid-feedback mt-2" *ngIf="chkbox1.invalid && (chkbox1.dirty || chkbox1.touched)">
+          <p *ngIf="chkbox1.errors.required"> Please enter password</p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" [disabled]="!form1.valid">Login</button>
+    </form>
+  </div>
+  <!--/card-body-->
+</div>
+<!-- /form card login -->

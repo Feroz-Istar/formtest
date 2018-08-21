@@ -1,0 +1,137 @@
+<!-- form card cc payment-->
+<div class="card card-outline-secondary">
+  <div class="card-body">
+    <h3 class="text-center">Credit Card Payment</h3>
+    <hr>
+    <div class="alert alert-info p-2 pb-3">
+      <a class="close font-weight-normal initialism" data-dismiss="alert" href="#">
+        <samp>&times;</samp>
+      </a>
+      CVC code is required.
+    </div>
+
+
+
+    <form [formGroup]="form5" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="uname2">Card Holder's Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Full name" name="uname2" formControlName="uname2" [ngClass]="{ 'is-invalid': uname2.invalid && (uname2.dirty ||
+                          uname2.touched), 'is-valid': uname2.valid && (uname2.dirty || uname2.touched)}">
+
+        <div class="invalid-feedback mt-2" *ngIf="uname2.invalid && (uname2.dirty || uname2.touched)">
+          <p *ngIf="uname2.errors.required"> Please Enter full Name</p>
+          <p *ngIf="uname2.errors.minlength"> first name,middle name,lastname</p>
+        </div>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" class="form-control" id="cardNum" placeholder="Card Number " name="cardNum" formControlName="cardNum"
+          [ngClass]="{ 'is-invalid': cardNum.invalid && (cardNum.dirty ||
+                                 cardNum.touched), 'is-valid': cardNum.valid && (cardNum.dirty || cardNum.touched)}">
+
+        <div class="invalid-feedback mt-2" *ngIf="cardNum.invalid && (cardNum.dirty || cardNum.touched)">
+          <p *ngIf="cardNum.errors.required"> Please Enter card Number</p>
+          <p *ngIf="cardNum.errors.minlength">xxxx xxxx xxxx xxxx</p>
+        </div>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-12">Card Exp. Date</label>
+        <div class="col-md-4">
+          <select class="form-control" name="cardexpmonth" size="0" formControlName="cardexpmonth" [ngClass]="{ 'is-invalid': cardexpmonth.invalid && (cardexpmonth.dirty || cardexpmonth.touched), 'is-valid': cardexpmonth.valid && (cardexpmonth.dirty
+          || cardexpmonth.touched)}">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+
+          <div class="invalid-feedback mt-2" *ngIf="cardexpmonth.invalid && (cardexpmonth.dirty || cardexpmonth.touched)">
+            <p *ngIf="cardexpmonth.errors.required"> select month</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <select class="form-control" name="cardexpyear" size="0" formControlName="cardexpyear" [ngClass]="{ 'is-invalid': cardexpyear.invalid && (cardexpyear.dirty || cardexpyear.touched),
+          'is-valid': cardexpyear.valid && (cardexpyear.dirty || cardexpyear.touched)}">
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+          </select>
+          <div class="invalid-feedback mt-2" *ngIf="cardexpyear.invalid && (cardexpyear.dirty || cardexpyear.touched)">
+            <p *ngIf="cardexpyear.errors.required"> select year</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" name="cardcvc" formControlName="cardcvc" title="Three digits at back of your card"
+            placeholder="CVC" [ngClass]="{ 'is-invalid': cardcvc.invalid && (cardcvc.dirty || cardcvc.touched), 'is-valid': cardcvc.valid && (cardcvc.dirty
+          || cardcvc.touched)}">
+
+          <div class="invalid-feedback mt-2" *ngIf="cardcvc.invalid && (cardcvc.dirty || cardcvc.touched)">
+            <p *ngIf="cardcvc.errors.required">ENTER CVC</p>
+            <p *ngIf="cardcvc.errors.minlength"> 3 DIGITS</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-12">Amount</label>
+      </div>
+      <div class="form-inline">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="amount" name="payamount" formControlName="payamount"
+            [ngClass]="{ 'is-invalid': payamount.invalid && (payamount.dirty || payamount.touched),
+          'is-valid': payamount.valid && (payamount.dirty || payamount.touched)}">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+          </div>
+          <div class="invalid-feedback mt-2" *ngIf="payamount.invalid && (payamount.dirty || payamount.touched)">
+            <p *ngIf="payamount.errors.required"> Please Enter amount</p>
+            <p *ngIf="payamount.errors.minlength"> first name,middle name,lastname</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+
+        </div>
+      </div>
+      <hr>
+      <div class="form-group row">
+        <div class="col-md-6">
+          <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
+        </div>
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!form5.valid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!--/form card cc payment -->

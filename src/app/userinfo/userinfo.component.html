@@ -1,0 +1,159 @@
+<!-- form user info -->
+<div class="card card-outline-secondary">
+  <div class="card-header">
+    <h3 class="mb-0">User Information</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form6" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+        <div class="col-lg-9">
+          <input class="form-control" type="text" id="inputName" placeholder="Full name" name="uname1" formControlName="uname1" [ngClass]="{ 'is-invalid': uname1.invalid
+          && (uname1.dirty || uname1.touched), 'is-valid': uname1.valid && (uname1.dirty || uname1.touched)}">
+          <div class="invalid-feedback mt-2" *ngIf="uname1.invalid && (uname1.dirty || uname1.touched)">
+            <p *ngIf="uname1.errors.required"> Please Enter first Name</p>
+            <p *ngIf="uname1.errors.minlength">name is too short</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+        <div class="col-lg-9">
+          <input type="text" class="form-control" id="inputName" placeholder="lastname" name="uname2" formControlName="uname2" [ngClass]="{ 'is-invalid': uname2.invalid && (uname2.dirty ||
+                            uname2.touched), 'is-valid': uname2.valid && (uname2.dirty || uname2.touched)}">
+
+          <div class="invalid-feedback mt-2" *ngIf="uname2.invalid && (uname2.dirty || uname2.touched)">
+            <p *ngIf="uname2.errors.required"> Please Enter last name</p>
+            <p *ngIf="uname2.errors.minlength">last name is too short</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+        <div class="col-lg-9">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="mailid" formControlName="mailid" [ngClass]="{ 'is-invalid': mailid.invalid && (mailid.dirty ||
+                             mailid.touched), 'is-valid': mailid.valid && (mailid.dirty || mailid.touched)}">
+          <div class="invalid-feedback mt-2" *ngIf="mailid.invalid && (mailid.dirty || mailid.touched)">
+            <p *ngIf="mailid.errors.required"> Please enter a valid email ID</p>
+            <p *ngIf="mailid.errors.pattern"> example@xyz.com</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Company</label>
+        <div class="col-lg-9">
+          <input class="form-control" type="text" id="inputName" placeholder="Company name" name="cname" formControlName="cname" [ngClass]="{ 'is-invalid': cname.invalid
+                    && (cname.dirty || cname.touched), 'is-valid': cname.valid && (cname.dirty || cname.touched)}">
+          <div class="invalid-feedback mt-2" *ngIf="cname.invalid && (cname.dirty || cname.touched)">
+            <p *ngIf="cname.errors.required"> Please Enter Company Name</p>
+            <p *ngIf="cname.errors.minlength">name is too short</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Website</label>
+        <div class="col-lg-9">
+          <input class="form-control" type="url" id="inputName" placeholder="https://www.example.com" name="cname" formControlName="cname"
+            [ngClass]="{ 'is-invalid': cname.invalid
+                              && (cname.dirty || cname.touched), 'is-valid': cname.valid && (cname.dirty || cname.touched)}">
+          <div class="invalid-feedback mt-2" *ngIf="cname.invalid && (cname.dirty || cname.touched)">
+            <p *ngIf="cname.errors.required"> Please Enter Company website</p>
+            <p *ngIf="cname.errors.minlength">name is too short</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+        <div class="col-lg-9">
+          <select id="user_time_zone" class="form-control" size="0" name="timezone" formControlName="timezone" [ngClass]="{ 'is-invalid': timezone.invalid && (timezone.dirty || timezone.touched), 'is-valid':
+           timezone.valid && (timezone.dirty || timezone.touched)}">
+            <option value="Hawaii">(GMT-10:00) Hawaii</option>
+            <option value="Alaska">(GMT-09:00) Alaska</option>
+            <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+            <option value="Arizona">(GMT-07:00) Arizona</option>
+            <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+            <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+            <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+            <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+          </select>
+          <div class="invalid-feedback mt-2" *ngIf="timezone.invalid && (timezone.dirty || timezone.touched)">
+            <p *ngIf="timezone.errors.required"> select the timezone</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+        <div class="col-lg-9">
+          <input class="form-control" type="text" id="username" placeholder="user name" name="uname3" formControlName="uname3" [ngClass]="{ 'is-invalid': uname3.invalid
+                            && (uname3.dirty || uname3.touched), 'is-valid': uname3.valid && (uname3.dirty || uname3.touched)}">
+          <div class="invalid-feedback mt-2" *ngIf="uname3.invalid && (uname3.dirty || uname3.touched)">
+            <p *ngIf="uname3.errors.required"> Please Enter first Name</p>
+            <p *ngIf="uname3.errors.minlength">name is too short</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Password</label>
+        <div class="col-lg-9">
+          <input type="password" formControlName="pwd2" name="pwd2" class="form-control" id="inputPassword3" validateEqualTo="repeatpassword"
+            placeholder="Password" [ngClass]="{ 'is-invalid': pwd2.invalid && (pwd2.dirty
+                            || pwd2.touched), 'is-valid': pwd2.valid && (pwd2.dirty || pwd2.touched)}">
+
+          <div class="invalid-feedback mt-2" *ngIf="pwd2.invalid && (pwd2.dirty || pwd2.touched)">
+            <p *ngIf="pwd2.errors.required"> Please enter password</p>
+            <p *ngIf="pwd2.errors.minlength"> password Should be atleast 8 characters</p>
+            <p *ngIf="pwd2.errors.pattern"> password Should be stronger</p>
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label">Confirm</label>
+        <div class="col-lg-9">
+          <input type="password" name="repeatpassword" formControlName="repeatpassword" class="form-control" id="inputVerify3" placeholder="repeatpassword"
+            [ngClass]="{ 'is-invalid': repeatpassword.invalid && (repeatpassword.dirty
+                                  || repeatpassword.touched), 'is-valid': repeatpassword.valid && (repeatpassword.dirty || repeatpassword.touched)}">
+
+
+          <div class="invalid-feedback mt-2" *ngIf="repeatpassword.invalid && (repeatpassword.dirty || repeatpassword.touched) ">
+            <p *ngIf="repeatpassword.errors.required"> Please enter password</p>
+            <p *ngIf="repeatpassword.errors.minlength"> password Should be atleast 8 characters</p>
+            <p *ngIf="loginverify.get('pwd2').hasError('validateEqual')"> password Should match </p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label form-control-label"></label>
+        <div class="col-lg-9">
+          <input type="reset" class="btn btn-secondary" value="Cancel">
+          <input type="submit" class="btn btn-success btn-lg" [disabled]="!form6.valid" value="Save Changes">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!--/form user info -->

@@ -1,0 +1,62 @@
+<!-- form user info  -->
+<div class="card card-outline-secondary">
+  <div class="card-header">
+    <h3 class="mb-0">Contact</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form7" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <label for="name2" class="mb-0">Name</label>
+        <div class="row mb-1">
+          <div class="col-lg-12">
+            <input type="text" class="form-control" id="inputName" placeholder="Full name" name="uname2" formControlName="uname2" [ngClass]="{ 'is-invalid': uname2.invalid && (uname2.dirty ||
+                              uname2.touched), 'is-valid': uname2.valid && (uname2.dirty || uname2.touched)}">
+
+            <div class="invalid-feedback mt-2" *ngIf="uname2.invalid && (uname2.dirty || uname2.touched)">
+              <p *ngIf="uname2.errors.required"> Please Enter full Name</p>
+              <p *ngIf="uname2.errors.minlength"> first name,middle name,lastname</p>
+            </div>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <label for="email2" class="mb-0">Email</label>
+        <div class="row mb-1">
+          <div class="col-lg-12">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="mailid" formControlName="mailid" [ngClass]="{ 'is-invalid': mailid.invalid && (mailid.dirty ||
+                               mailid.touched), 'is-valid': mailid.valid && (mailid.dirty || mailid.touched)}">
+            <div class="invalid-feedback mt-2" *ngIf="mailid.invalid && (mailid.dirty || mailid.touched)">
+              <p *ngIf="mailid.errors.required"> Please enter a valid email ID</p>
+              <p *ngIf="mailid.errors.pattern"> example@xyz.com</p>
+            </div>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <label for="message2" class="mb-0">Message</label>
+        <div class="row mb-1">
+          <div class="col-lg-12">
+            <textarea rows="6" class="form-control" id="inputMsg" name="msg" formControlName="msg" [ngClass]="{ 'is-invalid': msg.invalid && (msg.dirty ||
+                                         msg.touched), 'is-valid': msg.valid && (msg.dirty || msg.touched)}">
+          </textarea>
+            <div class="invalid-feedback mt-2" *ngIf="msg.invalid && (msg.dirty || msg.touched)">
+              <p *ngIf="msg.errors.required"> Please Enter full Name</p>
+              <p *ngIf="msg.errors.minlength"> first name,middle name,lastname</p>
+            </div>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <button type="submit" class="btn btn-secondary btn-lg float-right" [disabled]="!loginverify.valid">Send Message</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<!--  /form user info -->
